@@ -5,7 +5,7 @@
           "name":"Resume",
           "font":{ 
              "fontType":"Ubuntu",
-             "fontSize":"M"
+             "fontSize":"12"
           },
           "theme":{ 
              "baseColor":"Grey",

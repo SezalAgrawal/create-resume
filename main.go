@@ -6,6 +6,8 @@ import (
 	"github.com/jung-kurt/gofpdf"
 	"io/ioutil"
 	"os"
+	"strconv"
+	//"github.com/create-resume/font"
 )
 
 func main() {
@@ -37,10 +39,15 @@ func main() {
 	//..........................
 	// Step 2: Create PDF
 	//..........................
-	
+
 	pdf := gofpdf.New("P", "mm", "A4", "")
+	
+	//Make this generic, can use bytes in one file.go
+	pdf.AddFont("Ubuntu", "", "font/Ubuntu-Regular.json")
+
 	pdf.AddPage()
-	pdf.SetFont("Arial", "B", 16)
+	fontSize, _ := strconv.ParseFloat(req.TemplateInfo.TemplateDesign.Font.FontSize, 32)
+	pdf.SetFont("Ubuntu", "", fontSize)
 	pdf.Cell(40, 10, "Hello, world")
 	err = pdf.OutputFileAndClose(req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {
