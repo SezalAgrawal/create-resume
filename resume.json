@@ -1,0 +1,156 @@
+{ 
+    "templateInfo":{ 
+       "templateName":"Professional",
+       "templateDesign":{ 
+          "name":"Resume",
+          "font":{ 
+             "fontType":"Ubuntu",
+             "fontSize":"M"
+          },
+          "theme":{ 
+             "baseColor":"Grey",
+             "highlightColor":"Orange"
+          }
+       }
+    },
+    "userInfo":{ 
+       "header":{ 
+          "firstName":"Sezal",
+          "lastName":"Agrawal",
+          "title":"Software Developer",
+          "summary":"Professional Developer with a demonstrated history of working in some of the latest technologies like Big Data and Cloud for the past one year. Involved in projects requiring extensive management and leadership skills as well.",
+          "contact":{ 
+             "main":{ 
+                "email":"sezalagrawal@gmail.com",
+                "contact":"+91 70466-19150",
+                "address":{ 
+                   "street":"",
+                   "city":"Bengaluru",
+                   "country":"India"
+                }
+             },
+             "social":{ 
+                "socialMedia":{ 
+                   "skype":"Sezal Agrawal",
+                   "linkedin":"https://www.linkedin.com/in/sezal-agrawal-8bba8967/"
+                },
+                "coding":{ 
+                   "github":"https://github.com/SezalAgrawal"
+                }
+             }
+          },
+          "photo":"location of photo"
+       },
+       "practical":{ 
+          "workExperience":{ 
+             "title":"WORK EXPERIENCE",
+             "object":[ 
+                { 
+                   "position":"Blockchain Developer",
+                   "company":"Coral Blockchain",
+                   "duration":{ 
+                      "fromDate":"01/2019",
+                      "toDate":"Present"
+                   },
+                   "address":{ 
+                      "street":"",
+                      "city":"Bengaluru",
+                      "country":"India"
+                   },
+                   "tasks":[ 
+                      "Implement Key Management Plugin Solution in Ethereum, that can be used as SSO for various blockchain applications.",
+                      "Building prototypes for US Government to develop scalable one-stop-shop solution concerning their day-to-day applications and processes with a minimum of 30% decrease in capital, human resources and time to process."
+                   ]
+                },
+                { 
+                   "position":"Scrum Team Lead",
+                   "company":"Datagrokr Analytics Pvt Ltd",
+                   "duration":{ 
+                      "fromDate":"02/2018",
+                      "toDate":"12/2018"
+                   },
+                   "address":{ 
+                      "street":"",
+                      "city":"Bengaluru",
+                      "country":"India"
+                   },
+                   "tasks":[ 
+                      "Leading a scrum team to build a scalable, serverless web application using React, AWS services for a top energy consultancy company which provides comprehensive data and written analysis.",
+                      "Helped the client to migrate heavy SQL footprint to AWS. Worked on latest technologies like Airflow, Pentaho and developed a lot of architectural components of the project."
+                   ]
+                }
+             ]
+          },
+          "projects":{ 
+             "title":"PROJECTS",
+             "object":[ 
+                { 
+                   "projectName":"Open Source Contribution",
+                   "duration":{ 
+                        "fromDate":"Present",
+                        "toDate":"Present"
+                   },
+                   "tasks":[ 
+                      "Started contributing in open source GoLang projects like Mattermost and Standup-raven"
+                   ]
+                },
+                { 
+                   "projectName":"Mobile Application for Indoor Positioning System using Wi-Fi access points",
+                   "duration":{ 
+                      "fromDate":"07/2016",
+                      "toDate":"12/2016"
+                   },
+                   "tasks":[ 
+                      "Funded by IdeaLab of Nirma University up to INR 10,000",
+                      "Improved positioning by using advanced algorithms and image processing to find the most optimum path from source to destination, thereby saving resources"
+                   ]
+                }
+             ]
+          }
+       },
+       "abilities":{ 
+          "skills":{ 
+             "title":"SKILLS",
+             "object":[ 
+                "GoLang",
+                "Big Data",
+                "React",
+                "SQL",
+                "Airflow",
+                "Team Management"
+             ]
+          }
+       },
+       "theoretical":{ 
+          "education":{ 
+             "title":"EDUCATION",
+             "object":[ 
+                { 
+                   "studyProgram":"BTech",
+                   "institute":"Institute of Technology, Nirma University",
+                   "duration":{ 
+                      "fromDate":"07/2013",
+                      "toDate":"07/2017"
+                   },
+                   "cgpa":"8.86",
+                   "courses":[ 
+                      "Big Data",
+                      "Data Structure",
+                      "Theory of Computation",
+                      "Database Management"
+                   ]
+                }
+             ]
+          }
+       },
+       "personality":{ 
+          "interests":{ 
+             "title":"VOLUNTEER EXPERIENCE",
+             "object":[ 
+                "Volunteered at Make.A.Difference and took part in various activities like Raddi Campaign, merchant of Ahmedabad to raise funds which were then given for the education of children",
+                "Spearheaded a team of 20 members in Google Student Ambassador Club and judiciously managed creative designing of the team"
+             ]
+          }
+       }
+    }
+ }
