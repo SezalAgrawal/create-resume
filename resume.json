@@ -24,7 +24,6 @@
                 "email":"sezalagrawal@gmail.com",
                 "contact":"+91 70466-19150",
                 "address":{ 
-                   "street":"",
                    "city":"Bengaluru",
                    "country":"India"
                 }
@@ -32,7 +31,7 @@
              "social":{ 
                 "socialMedia":{ 
                    "skype":"Sezal Agrawal",
-                   "linkedin":"https://www.linkedin.com/in/sezal-agrawal-8bba8967/"
+                   "linkedin":"https://www.linkedin.com/in/sezal-agrawal-8bba8967"
                 },
                 "coding":{ 
                    "github":"https://github.com/SezalAgrawal"
@@ -53,7 +52,6 @@
                       "toDate":"Present"
                    },
                    "address":{ 
-                      "street":"",
                       "city":"Bengaluru",
                       "country":"India"
                    },
@@ -70,7 +68,6 @@
                       "toDate":"12/2018"
                    },
                    "address":{ 
-                      "street":"",
                       "city":"Bengaluru",
                       "country":"India"
                    },
