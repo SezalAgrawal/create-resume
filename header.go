@@ -35,17 +35,39 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) (error){
 	//Add contact info
 	pdf.SetY(y)
 	contentSizePt := pdf.PointConvert(contentSize)
-	pdf.CellFormat(0, contentSizePt, string(header.Contact.Main.Email), "", 1, "R", false, 0, "")
+	pageWidth, _ := pdf.GetPageSize()
+	//setting 4 as default width of icons	
+	iconX := pageWidth - (4 + marginRight)
+	infoX := pageWidth - (4 + marginRight + summaryWidth + 2)
+
+	pdf.Image("image/email.png", iconX, y, 3, 3, false, "PNG", 0, "")
+	pdf.SetX(infoX)
+	pdf.CellFormat(summaryWidth, contentSizePt, string(header.Contact.Main.Email), "", 1, "R", false, 0, "")
 	pdf.Ln(-1)
-	pdf.CellFormat(0, contentSizePt, string(header.Contact.Main.Contact), "", 1, "R", false, 0, "")
+
+	pdf.Image("image/phone.png", iconX, y+3+contentSizePt, 3, 3, false, "PNG", 0, "")
+	pdf.SetX(infoX)
+	pdf.CellFormat(summaryWidth, contentSizePt, string(header.Contact.Main.Contact), "", 1, "R", false, 0, "")
 	pdf.Ln(-1)
-	pdf.CellFormat(0, contentSizePt, string(header.Contact.Main.Address.City + ", " + header.Contact.Main.Address.Country), "", 1, "R", false, 0, "")
+
+	pdf.Image("image/location.png", iconX, y+2*(3+contentSizePt), 3, 3, false, "PNG", 0, "")
+	pdf.SetX(infoX)
+	pdf.CellFormat(summaryWidth, contentSizePt, string(header.Contact.Main.Address.City + ", " + header.Contact.Main.Address.Country), "", 1, "R", false, 0, "")
 	pdf.Ln(-1)
-	pdf.CellFormat(0, contentSizePt, strings.Replace(header.Contact.Social.SocialMedia.Linkedin, "https://www.", "", -1), "", 1, "R", false, 0, string(header.Contact.Social.SocialMedia.Linkedin))
+
+	pdf.Image("image/linkedin.png", iconX, y+3*(3+contentSizePt), 3, 3, false, "PNG", 0, "")
+	pdf.SetX(infoX)
+	pdf.CellFormat(summaryWidth, contentSizePt, strings.Replace(header.Contact.Social.SocialMedia.Linkedin, "https://www.", "", -1), "", 1, "R", false, 0, string(header.Contact.Social.SocialMedia.Linkedin))
 	pdf.Ln(-1)
-	pdf.CellFormat(0, contentSizePt, string(header.Contact.Social.SocialMedia.Skype), "", 1, "R", false, 0, "")
+
+	pdf.Image("image/skype.png", iconX, y+4*(3+contentSizePt), 3, 3, false, "PNG", 0, "")
+	pdf.SetX(infoX)
+	pdf.CellFormat(summaryWidth, contentSizePt, string(header.Contact.Social.SocialMedia.Skype), "", 1, "R", false, 0, "")
 	pdf.Ln(-1)
-	pdf.CellFormat(0, contentSizePt, strings.Replace(header.Contact.Social.Coding.Github, "https://", "", -1), "", 1, "R", false, 0, string(header.Contact.Social.Coding.Github))
+
+	pdf.Image("image/github.png", iconX, y+5*(3+contentSizePt), 3, 3, false, "PNG", 0, "")
+	pdf.SetX(infoX)
+	pdf.CellFormat(summaryWidth, contentSizePt, strings.Replace(header.Contact.Social.Coding.Github, "https://", "", -1), "", 1, "R", false, 0, string(header.Contact.Social.Coding.Github))
 	pdf.Ln(-1)
 
 	if !pdf.Ok() {
@@ -55,3 +77,4 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) (error){
 	fmt.Println("Header created successfully!")
 	return nil
 }
+//rgba(235, 71, 6, 1)
