@@ -40,15 +40,24 @@ func main() {
 	// Step 2: Create PDF
 	//..........................
 
-	pdf := gofpdf.New("P", "mm", "A4", "")
-	
+	pdf := gofpdf.New("P", "mm", "A4", "font")
+
+	//Set font type and size
+
 	//Make this generic, can use bytes in one file.go
-	pdf.AddFont("Ubuntu", "", "font/Ubuntu-Regular.json")
+	pdf.AddFont("Ubuntu", "", "Ubuntu-Regular.json")
 
 	pdf.AddPage()
 	fontSize, _ := strconv.ParseFloat(req.TemplateInfo.TemplateDesign.Font.FontSize, 32)
 	pdf.SetFont("Ubuntu", "", fontSize)
-	pdf.Cell(40, 10, "Hello, world")
+
+	//Create header
+	err = createHeader(pdf, req.UserInfo.Header)
+	if err != nil {
+		os.Exit(1)
+	}
+	
+	//Create PDF
 	err = pdf.OutputFileAndClose(req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {
 		fmt.Println(err)

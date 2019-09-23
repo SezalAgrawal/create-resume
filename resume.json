@@ -5,7 +5,7 @@
           "name":"Resume",
           "font":{ 
              "fontType":"Ubuntu",
-             "fontSize":"12"
+             "fontSize":"9"
           },
           "theme":{ 
              "baseColor":"Grey",
@@ -39,7 +39,7 @@
                 }
              }
           },
-          "photo":"location of photo"
+          "photo":"image/image.png"
        },
        "practical":{ 
           "workExperience":{ 
