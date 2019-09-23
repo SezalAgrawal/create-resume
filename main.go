@@ -7,8 +7,10 @@ import (
 	"io/ioutil"
 	"os"
 	"strconv"
-	//"github.com/create-resume/font"
 )
+
+//create global variables for fontSize
+var nameSize, titleSize, contentSize, marginLeft, marginTop, marginRight, summaryWidth, summaryHeight float64
 
 func main() {
 
@@ -45,11 +47,25 @@ func main() {
 	//Set font type and size
 
 	//Make this generic, can use bytes in one file.go
-	pdf.AddFont("Ubuntu", "", "Ubuntu-Regular.json")
+	pdf.AddFont("Ubuntu-Light", "", "Ubuntu-Light.json")
+	pdf.AddFont("Ubuntu-LightItalic", "", "Ubuntu-LightItalic.json")
+	pdf.AddFont("Ubuntu-Regular", "", "Ubuntu-Regular.json")
+	pdf.AddFont("Ubuntu-RegularItalic", "", "Ubuntu-RegularItalic.json")
+	pdf.AddFont("Ubuntu-Medium", "", "Ubuntu-Medium.json")
+	pdf.AddFont("Ubuntu-MediumItalic", "", "Ubuntu-MediumItalic.json")
+	pdf.AddFont("Ubuntu-Bold", "", "Ubuntu-Bold.json")
+	pdf.AddFont("Ubuntu-BoldItalic", "", "Ubuntu-BoldItalic.json")
 
 	pdf.AddPage()
-	fontSize, _ := strconv.ParseFloat(req.TemplateInfo.TemplateDesign.Font.FontSize, 32)
-	pdf.SetFont("Ubuntu", "", fontSize)
+	contentSize, _ = strconv.ParseFloat(req.TemplateInfo.TemplateDesign.Font.FontSize, 32)
+	pdf.SetFont("Ubuntu-Regular", "", contentSize)
+
+	//Set global variables
+	setGlobalVariables()
+
+	//Set Margin
+	pdf.SetMargins(marginLeft, marginTop, marginRight)
+	pdf.SetXY(marginLeft, marginTop)
 
 	//Create header
 	err = createHeader(pdf, req.UserInfo.Header)
