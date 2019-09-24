@@ -10,8 +10,8 @@ import (
 )
 
 //create global variables for fontSize
-var nameSize, titleSize, contentSize, marginLeft, marginTop, marginRight, summaryWidth, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerPercent float64
-var textColor, primaryColor, secondaryColor Color
+var header1, header2, header3, header4, header5, header6, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
+var textPrimaryColor, textSecondaryColor, primaryColor, secondaryColor Color
 
 func main() {
 
@@ -58,8 +58,8 @@ func main() {
 	pdf.AddFont("Ubuntu-BoldItalic", "", "Ubuntu-BoldItalic.json")
 
 	pdf.AddPage()
-	contentSize, _ = strconv.ParseFloat(req.TemplateInfo.TemplateDesign.Font.FontSize, 32)
-	pdf.SetFont("Ubuntu-Regular", "", contentSize)
+	header1, _ = strconv.ParseFloat(req.TemplateInfo.TemplateDesign.Font.FontSize, 32)
+	pdf.SetFont("Ubuntu-Regular", "", header1)
 
 	//Set global variables
 	setGlobalVariables()
@@ -72,6 +72,8 @@ func main() {
 	pageWidth, pageHeight = pdf.GetPageSize()
 	layoutWidth = pageWidth - (marginLeft + marginRight)
 	layoutHeight = pageHeight - (2*marginTop)
+	headerLayoutWidth = layoutWidth/2 - 23
+	contentLayoutWidth = layoutWidth/2 - 8
 
 	//Create header
 	err = createHeader(pdf, req.UserInfo.Header)
@@ -81,6 +83,15 @@ func main() {
 	
 	//Create Line
 	err = createLine(pdf)
+	if err != nil {
+		os.Exit(1)
+	}
+
+	//Set XY
+	pdf.SetXY(marginLeft, layoutHeight*headerPercent + 4)
+
+	//Create Work Experience
+	err = createWorkExperience(pdf, req.UserInfo.Practical.WorkExperience)
 	if err != nil {
 		os.Exit(1)
 	}
