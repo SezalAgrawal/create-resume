@@ -7,9 +7,10 @@
              "fontType":"Ubuntu",
              "fontSize":"9"
           },
-          "theme":{ 
-             "baseColor":"Grey",
-             "highlightColor":"Orange"
+          "theme":{
+             "textColor": "Black",
+             "primaryColor":"Grey",
+             "secondaryColor":"Orange"
           }
        }
     },

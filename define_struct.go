@@ -1,5 +1,12 @@
 package main
 
+//Color object
+type Color struct {
+	Red   int
+	Green int
+	Blue  int
+}
+
 //Request object
 type Request struct {
 	TemplateInfo TemplateInfo `json:"templateInfo"`
@@ -27,8 +34,9 @@ type Font struct {
 
 //Theme object
 type Theme struct {
-	BaseColor      string `json:"baseColor"`
-	HighlightColor string `json:"highlightColor"`
+	TextColor      string `json:"textColor"`
+	PrimaryColor   string `json:"primaryColor"`
+	SecondaryColor string `json:"secondaryColor"`
 }
 
 //UserInfo object

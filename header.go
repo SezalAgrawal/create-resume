@@ -16,17 +16,19 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) (error){
 	pdf.Ln(-1)
 
 	//Add Title
-	pdf.SetFont("Ubuntu-Light", "", titleSize)
+	pdf.SetFont("Ubuntu-Regular", "", titleSize)
+	pdf.SetTextColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
 	titleSizePt := pdf.PointConvert(titleSize)
 	pdf.Write(titleSizePt, header.Title)
 
 	//Add Summary
 	pdf.SetY(y+nameSizePt+titleSizePt+3)
 	pdf.SetFont("Ubuntu-Regular", "", contentSize)
+	pdf.SetTextColor(textColor.Red, textColor.Green, textColor.Blue)
 	pdf.MultiCell(summaryWidth, summaryHeight, string(header.Summary), "", "TL", false)
 
 	//Add image
-	pdf.SetDrawColor(192, 192, 192)
+	pdf.SetDrawColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
 	pdf.SetLineWidth(1)
 	pdf.ClipCircle(107, 25, 16, true)
 	pdf.Image(string(header.Photo), 91, 9, 32, 35, false, "PNG", 0, "")
@@ -35,7 +37,6 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) (error){
 	//Add contact info
 	pdf.SetY(y)
 	contentSizePt := pdf.PointConvert(contentSize)
-	pageWidth, _ := pdf.GetPageSize()
 	//setting 4 as default width of icons	
 	iconX := pageWidth - (4 + marginRight)
 	infoX := pageWidth - (4 + marginRight + summaryWidth + 2)
@@ -77,4 +78,16 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) (error){
 	fmt.Println("Header created successfully!")
 	return nil
 }
-//rgba(235, 71, 6, 1)
+
+
+func createLine(pdf *gofpdf.Fpdf) (error){
+	pdf.SetDrawColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
+	pdf.SetLineWidth(0.4)
+	pdf.Line(0, layoutHeight*headerPercent, pageWidth, layoutHeight*headerPercent)
+	if !pdf.Ok() {
+		fmt.Println("Error in Line creation!", pdf.Error())
+		return pdf.Error()
+	} 	
+	fmt.Println("Line created successfully!")
+	return nil
+}

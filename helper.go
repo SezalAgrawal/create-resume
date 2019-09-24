@@ -8,4 +8,8 @@ func setGlobalVariables() {
 	marginRight = 12
 	summaryWidth = 75
 	summaryHeight = 4
+	headerPercent = 0.17
+	textColor = Color{0, 0, 0}
+	primaryColor = Color{255, 69, 0}
+	secondaryColor = Color{128, 128, 128}
 }

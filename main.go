@@ -10,7 +10,8 @@ import (
 )
 
 //create global variables for fontSize
-var nameSize, titleSize, contentSize, marginLeft, marginTop, marginRight, summaryWidth, summaryHeight float64
+var nameSize, titleSize, contentSize, marginLeft, marginTop, marginRight, summaryWidth, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerPercent float64
+var textColor, primaryColor, secondaryColor Color
 
 func main() {
 
@@ -67,12 +68,23 @@ func main() {
 	pdf.SetMargins(marginLeft, marginTop, marginRight)
 	pdf.SetXY(marginLeft, marginTop)
 
+	//Set basic width/height
+	pageWidth, pageHeight = pdf.GetPageSize()
+	layoutWidth = pageWidth - (marginLeft + marginRight)
+	layoutHeight = pageHeight - (2*marginTop)
+
 	//Create header
 	err = createHeader(pdf, req.UserInfo.Header)
 	if err != nil {
 		os.Exit(1)
 	}
 	
+	//Create Line
+	err = createLine(pdf)
+	if err != nil {
+		os.Exit(1)
+	}
+
 	//Create PDF
 	err = pdf.OutputFileAndClose(req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {
