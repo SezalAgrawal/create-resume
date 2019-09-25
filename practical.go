@@ -8,8 +8,8 @@ import (
 func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 
 	//Add Title
-	pdf.SetFont("Ubuntu-Bold", "", header4)
-	pdf.Write(pdf.PointConvert(header4)+4, workEx.Title)
+	pdf.SetFont("Ubuntu-Bold", "", header3)
+	pdf.Write(pdf.PointConvert(header3)+4, workEx.Title)
 	pdf.Ln(-1)
 
 	//Set Parameters to be used in Object Creation
@@ -22,13 +22,13 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 	for _, obj := range workEx.Object {
 
 		//Add Position
-		pdf.SetFont("Ubuntu-Bold", "", header5)
-		pdf.Write(pdf.PointConvert(header5), obj.Position)
+		pdf.SetFont("Ubuntu-Bold", "", header2)
+		pdf.Write(pdf.PointConvert(header2), obj.Position)
 		pdf.Ln(-1)
 
 		//Add Company
-		pdf.SetFont("Ubuntu-Regular", "", header3)
-		pdf.Write(pdf.PointConvert(header3)+2, obj.Company)
+		pdf.SetFont("Ubuntu-Regular", "", header2)
+		pdf.Write(pdf.PointConvert(header2)+2, obj.Company)
 		pdf.Ln(-1)
 
 		//Add Duration and Location

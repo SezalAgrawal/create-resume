@@ -10,15 +10,15 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) error {
 	_, y := pdf.GetXY()
 
 	//Add Name
-	pdf.SetFontSize(header2)
-	nameSizePt := pdf.PointConvert(header2)
+	pdf.SetFontSize(header4)
+	nameSizePt := pdf.PointConvert(header4)
 	pdf.Write(nameSizePt+1, header.FirstName+" "+header.LastName)
 	pdf.Ln(-1)
 
 	//Add Title
-	pdf.SetFont("Ubuntu-Regular", "", header3)
+	pdf.SetFont("Ubuntu-Regular", "", header2)
 	pdf.SetTextColor(textSecondaryColor.Red, textSecondaryColor.Green, textSecondaryColor.Blue)
-	titleSizePt := pdf.PointConvert(header3)
+	titleSizePt := pdf.PointConvert(header2)
 	pdf.Write(titleSizePt, header.Title)
 
 	//Add Summary

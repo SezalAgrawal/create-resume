@@ -10,7 +10,7 @@ import (
 )
 
 //create global variables for fontSize
-var header1, header2, header3, header4, header5, header6, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
+var header1, header2, header3, header4, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
 var textPrimaryColor, textSecondaryColor, primaryColor, secondaryColor Color
 
 func main() {
