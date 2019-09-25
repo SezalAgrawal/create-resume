@@ -96,6 +96,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	//Create Education
+	err = createEducation(pdf, req.UserInfo.Theoretical.Education)
+	if err != nil {
+		os.Exit(1)
+	}
+
 	//Create PDF
 	err = pdf.OutputFileAndClose(req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {

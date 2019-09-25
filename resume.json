@@ -89,8 +89,8 @@
                      "country":"India"
                   },
                   "tasks":[ 
-                     "Developed a benchmarking and regulatory solution forone of the largest US credit card processor company,using BigData technologies like Hive, Oozie, Hplsql.Handled client calls and helped them in designingefficient models and workflows. Highly appreciated formaintaining a good relationship with clients.",
-                     "Built a datalake for an American company operating aworldwide online payments system. Led various modulesof the project single-handedly and efficiently deliveredall the requirements before deadline. Queries wereoptimized to take minutes instead of hours."
+                     "Developed a benchmarking and regulatory solution for one of the largest US credit card processor company, using BigData technologies like Hive, Oozie, Hplsql. Handled client calls and helped them in designing efficient models and workflows. Highly appreciated for maintaining a good relationship with clients.",
+                     "Built a datalake for an American company operating a worldwide online payments system. Led various modules of the project single-handedly and efficiently delivered all the requirements before deadline. Queries were optimized to take minutes instead of hours."
                   ]
                }
             ]
@@ -149,8 +149,8 @@
                   "cgpa":"8.86",
                   "courses":[ 
                      "Big Data",
-                     "Data Structure",
                      "Theory of Computation",
+                     "Data Structure",
                      "Database Management"
                   ]
                }
