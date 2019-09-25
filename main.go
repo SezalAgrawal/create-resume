@@ -71,16 +71,16 @@ func main() {
 	//Set basic width/height
 	pageWidth, pageHeight = pdf.GetPageSize()
 	layoutWidth = pageWidth - (marginLeft + marginRight)
-	layoutHeight = pageHeight - (2*marginTop)
+	layoutHeight = pageHeight - (2 * marginTop)
 	headerLayoutWidth = layoutWidth/2 - 23
-	contentLayoutWidth = layoutWidth/2 - 8
+	contentLayoutWidth = layoutWidth/2 - 5
 
 	//Create header
 	err = createHeader(pdf, req.UserInfo.Header)
 	if err != nil {
 		os.Exit(1)
 	}
-	
+
 	//Create Line
 	err = createLine(pdf)
 	if err != nil {
@@ -88,7 +88,7 @@ func main() {
 	}
 
 	//Set XY
-	pdf.SetXY(marginLeft, layoutHeight*headerPercent + 4)
+	pdf.SetXY(marginLeft, layoutHeight*headerPercent+4)
 
 	//Create Work Experience
 	err = createWorkExperience(pdf, req.UserInfo.Practical.WorkExperience)
