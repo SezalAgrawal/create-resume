@@ -101,11 +101,21 @@
                { 
                   "projectName":"Open Source Contribution",
                   "duration":{ 
-                     "fromDate":"Present",
-                     "toDate":"Present"
+                     "fromDate":"",
+                     "toDate":""
                   },
                   "tasks":[ 
-                     "Started contributing in open source GoLang projects like Mattermost and Standup-raven"
+                     "Started contributing in open source GoLang projects like Mattermost and Standup-raven."
+                  ]
+               },
+               { 
+                  "projectName":"Transaction Wallet",
+                  "duration":{ 
+                     "fromDate":"08/2017",
+                     "toDate":"09/2017"
+                  },
+                  "tasks":[ 
+                     "Built a transaction wallet where people can transfer ether and buy products using Solidity."
                   ]
                },
                { 
@@ -117,6 +127,16 @@
                   "tasks":[ 
                      "Funded by IdeaLab of Nirma University up to INR 10,000",
                      "Improved positioning by using advanced algorithms and image processing to find the most optimum path from source to destination, thereby saving resources"
+                  ]
+               },
+               { 
+                  "projectName":"Community Outreach Portal",
+                  "duration":{ 
+                     "fromDate":"08/2015",
+                     "toDate":"12/2015"
+                  },
+                  "tasks":[ 
+                     "Developed a portal to channelize time and expertise of several individuals and organizations to make a meaningful contribution to society."
                   ]
                }
             ]

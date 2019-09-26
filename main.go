@@ -10,7 +10,7 @@ import (
 )
 
 //create global variables for fontSize
-var header1, header2, header3, header4, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
+var header1, header2, header3, header4, header5, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
 var textPrimaryColor, textSecondaryColor, primaryColor, secondaryColor Color
 
 func main() {
@@ -87,7 +87,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	//Set XY
+	//Set XY for left side
 	pdf.SetXY(marginLeft, layoutHeight*headerPercent+4)
 
 	//Create Work Experience
@@ -98,6 +98,16 @@ func main() {
 
 	//Create Education
 	err = createEducation(pdf, req.UserInfo.Theoretical.Education)
+	if err != nil {
+		os.Exit(1)
+	}
+
+	//Set XY for right side
+	pdf.SetLeftMargin(marginLeft + layoutWidth/2 + 5)
+	pdf.SetXY(marginLeft+layoutWidth/2+5, layoutHeight*headerPercent+4)
+
+	//Create Projects
+	err = createProjects(pdf, req.UserInfo.Practical.Projects)
 	if err != nil {
 		os.Exit(1)
 	}

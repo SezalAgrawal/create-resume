@@ -13,7 +13,7 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 	pdf.Ln(-1)
 
 	//Set Parameters to be used in Object Creation
-	iconX := marginLeft + 2
+	iconX := pdf.GetX() + 2
 	iconY := 0.0
 	contentX := iconX + 2
 	iconRadius := 0.7
@@ -63,5 +63,56 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 		return pdf.Error()
 	}
 	fmt.Println("Work Experience created successfully!")
+	return nil
+}
+
+func createProjects(pdf *gofpdf.Fpdf, projects Projects) error {
+
+	//Add Title
+	pdf.SetFont("Ubuntu-Bold", "", header3)
+	pdf.Write(pdf.PointConvert(header3)+4, projects.Title)
+	pdf.Ln(-1)
+
+	//Set Parameters to be used in Object Creation
+	iconX := pdf.GetX() + 2
+	iconY := 0.0
+	contentX := iconX + 2
+	iconRadius := 0.7
+	duration := ""
+	//Add Object List
+	for _, obj := range projects.Object {
+
+		//Add Project Name and Duration
+		pdf.SetFont("Ubuntu-Regular", "", header5)
+		if len(obj.Duration.FromDate) == 0 {
+			duration = ""
+		} else {
+			duration = " (" + obj.Duration.ToDate + " - " + obj.Duration.ToDate + ")"
+		}
+		pdf.Write(pdf.PointConvert(header5)+1, obj.ProjectName+duration)
+		pdf.Ln(-1)
+
+		//Add Tasks
+		pdf.SetFont("Ubuntu-Regular", "", header1)
+		pdf.SetTextColor(textPrimaryColor.Red, textPrimaryColor.Green, textPrimaryColor.Blue)
+		pdf.SetFillColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
+
+		for _, task := range obj.Tasks {
+			iconY = pdf.GetY() + 2
+			pdf.Circle(iconX, iconY, iconRadius, "F")
+			pdf.SetX(contentX)
+			pdf.MultiCell(contentLayoutWidth, summaryHeight, task, "", "TL", false)
+			pdf.Ln(1)
+		}
+
+		//Add Bottom padding
+		pdf.SetY(pdf.GetY() + 3)
+	}
+
+	if !pdf.Ok() {
+		fmt.Println("Error in Projects creation!", pdf.Error())
+		return pdf.Error()
+	}
+	fmt.Println("Projects created successfully!")
 	return nil
 }

@@ -43,7 +43,7 @@ func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
 		pdf.SetTextColor(textPrimaryColor.Red, textPrimaryColor.Green, textPrimaryColor.Blue)
 		pdf.SetFillColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
 
-		iconX = marginLeft + 2
+		iconX = pdf.GetX() + 2
 		iconY = pdf.GetY() + 2
 		contentX = iconX + 2
 		factor := 1.0
@@ -53,7 +53,7 @@ func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
 			pdf.SetX(contentX)
 			pdf.Write(pdf.PointConvert(header1)+1, course)
 
-			iconX = iconX + factor*(contentLayoutWidth/2 + 6)
+			iconX = iconX + factor*(contentLayoutWidth/2+6)
 			contentX = iconX + 2
 			if factor == -1.0 {
 				pdf.Ln(-1)
@@ -74,4 +74,3 @@ func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
 	fmt.Println("Education created successfully!")
 	return nil
 }
- 
