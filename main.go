@@ -11,7 +11,7 @@ import (
 
 //create global variables for fontSize
 var header1, header2, header3, header4, header5, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
-var textPrimaryColor, textSecondaryColor, primaryColor, secondaryColor Color
+var textPrimaryColor, textSecondaryColor, textThirdColor, primaryColor, secondaryColor Color
 
 func main() {
 
@@ -105,6 +105,12 @@ func main() {
 	//Set XY for right side
 	pdf.SetLeftMargin(marginLeft + layoutWidth/2 + 5)
 	pdf.SetXY(marginLeft+layoutWidth/2+5, layoutHeight*headerPercent+4)
+
+	//Create Skills
+	err = createSkills(pdf, req.UserInfo.Abilities.Skills)
+	if err != nil {
+		os.Exit(1)
+	}
 
 	//Create Projects
 	err = createProjects(pdf, req.UserInfo.Practical.Projects)

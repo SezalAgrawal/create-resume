@@ -19,6 +19,7 @@ func setGlobalVariables() {
 	//set Color
 	textPrimaryColor = Color{0, 0, 0}
 	textSecondaryColor = Color{105, 105, 105}
+	textThirdColor = Color{255, 255, 255}
 	primaryColor = Color{255, 69, 0}
-	secondaryColor = Color{192, 192, 192}
+	secondaryColor = Color{169, 169, 169}
 }
