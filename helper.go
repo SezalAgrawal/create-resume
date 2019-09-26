@@ -2,10 +2,10 @@ package main
 
 func setGlobalVariables() {
 	//set header
-	header2 = header1 + 3
-	header3 = header1 + 5
-	header4 = header1*2 + 2
-	header5 = header1 + 1
+	header2 = header1 + 1
+	header3 = header1 + 3
+	header4 = header1 + 5
+	header5 = header1*2 + 2
 
 	//set margin
 	marginLeft = 12

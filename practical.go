@@ -8,8 +8,8 @@ import (
 func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 
 	//Add Title
-	pdf.SetFont("Ubuntu-Bold", "", header3)
-	pdf.Write(pdf.PointConvert(header3)+4, workEx.Title)
+	pdf.SetFont("Ubuntu-Bold", "", header4)
+	pdf.Write(pdf.PointConvert(header4)+4, workEx.Title)
 	pdf.Ln(-1)
 
 	//Set Parameters to be used in Object Creation
@@ -22,13 +22,13 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 	for _, obj := range workEx.Object {
 
 		//Add Position
-		pdf.SetFont("Ubuntu-Bold", "", header2)
-		pdf.Write(pdf.PointConvert(header2), obj.Position)
+		pdf.SetFont("Ubuntu-Bold", "", header3)
+		pdf.Write(pdf.PointConvert(header3), obj.Position)
 		pdf.Ln(-1)
 
 		//Add Company
-		pdf.SetFont("Ubuntu-Regular", "", header2)
-		pdf.Write(pdf.PointConvert(header2)+2, obj.Company)
+		pdf.SetFont("Ubuntu-Regular", "", header3)
+		pdf.Write(pdf.PointConvert(header3)+2, obj.Company)
 		pdf.Ln(-1)
 
 		//Add Duration and Location
@@ -69,8 +69,8 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 func createProjects(pdf *gofpdf.Fpdf, projects Projects) error {
 
 	//Add Title
-	pdf.SetFont("Ubuntu-Bold", "", header3)
-	pdf.Write(pdf.PointConvert(header3)+4, projects.Title)
+	pdf.SetFont("Ubuntu-Bold", "", header4)
+	pdf.Write(pdf.PointConvert(header4)+4, projects.Title)
 	pdf.Ln(-1)
 
 	//Set Parameters to be used in Object Creation
@@ -83,13 +83,13 @@ func createProjects(pdf *gofpdf.Fpdf, projects Projects) error {
 	for _, obj := range projects.Object {
 
 		//Add Project Name and Duration
-		pdf.SetFont("Ubuntu-Regular", "", header5)
+		pdf.SetFont("Ubuntu-Regular", "", header2)
 		if len(obj.Duration.FromDate) == 0 {
 			duration = ""
 		} else {
 			duration = " (" + obj.Duration.ToDate + " - " + obj.Duration.ToDate + ")"
 		}
-		pdf.Write(pdf.PointConvert(header5)+1, obj.ProjectName+duration)
+		pdf.Write(pdf.PointConvert(header2)+1, obj.ProjectName+duration)
 		pdf.Ln(-1)
 
 		//Add Tasks

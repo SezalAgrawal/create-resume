@@ -8,8 +8,8 @@ import (
 func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
 
 	//Add Title
-	pdf.SetFont("Ubuntu-Bold", "", header3)
-	pdf.Write(pdf.PointConvert(header3)+4, ed.Title)
+	pdf.SetFont("Ubuntu-Bold", "", header4)
+	pdf.Write(pdf.PointConvert(header4)+4, ed.Title)
 	pdf.Ln(-1)
 
 	var iconX, iconY, contentX float64
@@ -19,13 +19,13 @@ func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
 	for _, obj := range ed.Object {
 
 		//Add Position
-		pdf.SetFont("Ubuntu-Bold", "", header2)
-		pdf.Write(pdf.PointConvert(header2), obj.StudyProgram)
+		pdf.SetFont("Ubuntu-Bold", "", header3)
+		pdf.Write(pdf.PointConvert(header3), obj.StudyProgram)
 		pdf.Ln(-1)
 
 		//Add Company
-		pdf.SetFont("Ubuntu-Regular", "", header2)
-		pdf.Write(pdf.PointConvert(header2)+2, obj.Institute)
+		pdf.SetFont("Ubuntu-Regular", "", header3)
+		pdf.Write(pdf.PointConvert(header3)+2, obj.Institute)
 		pdf.Ln(-1)
 
 		//Add Duration and Location
