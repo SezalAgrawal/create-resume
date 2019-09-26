@@ -112,6 +112,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	//Create Interests
+	err = createInterests(pdf, req.UserInfo.Personality.Interest)
+	if err != nil {
+		os.Exit(1)
+	}
+
 	//Create PDF
 	err = pdf.OutputFileAndClose(req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {
