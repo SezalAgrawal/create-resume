@@ -10,7 +10,7 @@ import (
 )
 
 //create global variables for fontSize
-var header1, header2, header3, header4, header5, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, headerPercent float64
+var header1, header2, header3, header4, header5, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, rightContentLayoutWidth, headerPercent float64
 var textPrimaryColor, textSecondaryColor, textThirdColor, primaryColor, secondaryColor Color
 
 func main() {
@@ -74,6 +74,7 @@ func main() {
 	layoutHeight = pageHeight - (2 * marginTop)
 	headerLayoutWidth = layoutWidth/2 - 23
 	contentLayoutWidth = layoutWidth/2 - 5
+	rightContentLayoutWidth = contentLayoutWidth - 2
 
 	//Create header
 	err = createHeader(pdf, req.UserInfo.Header)

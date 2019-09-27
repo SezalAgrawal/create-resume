@@ -23,7 +23,7 @@ func createSkills(pdf *gofpdf.Fpdf, skills Skills) error {
 		pdf.SetLineWidth(0.5)
 		pdf.SetFillColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
 		var textWidth float64 = float64(2) + pdf.GetStringWidth(obj) + float64(2)
-		if (contentLayoutWidth - totalWidthUsed) < (textWidth) {
+		if (rightContentLayoutWidth - totalWidthUsed) < (textWidth) {
 			y += cellHeight
 			totalWidthUsed = 0
 			pdf.SetXY(x, y)

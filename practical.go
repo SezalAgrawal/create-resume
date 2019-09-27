@@ -101,7 +101,7 @@ func createProjects(pdf *gofpdf.Fpdf, projects Projects) error {
 			iconY = pdf.GetY() + 2
 			pdf.Circle(iconX, iconY, iconRadius, "F")
 			pdf.SetX(contentX)
-			pdf.MultiCell(contentLayoutWidth, summaryHeight, task, "", "TL", false)
+			pdf.MultiCell(rightContentLayoutWidth, summaryHeight, task, "", "TL", false)
 			pdf.Ln(1)
 		}
 

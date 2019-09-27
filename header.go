@@ -38,8 +38,8 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) error {
 	pdf.SetY(y)
 	contentSizePt := pdf.PointConvert(header1)
 	//setting 4 as default width of icons
-	iconX := pageWidth - (4 + marginRight)
-	infoX := pageWidth - (4 + marginRight + headerLayoutWidth + 2)
+	iconX := pageWidth - (1 + marginRight)
+	infoX := pageWidth - (1 + marginRight + headerLayoutWidth + 2)
 
 	pdf.Image("image/email.png", iconX, y, 3, 3, false, "PNG", 0, "")
 	pdf.SetX(infoX)
