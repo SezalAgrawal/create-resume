@@ -18,6 +18,8 @@ func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
 	//Add Object List
 	for _, obj := range ed.Object {
 
+		createBox(pdf, secondaryColor, 0, pdf.GetY(), boxWidth, boxHeight)
+
 		//Add Position
 		pdf.SetFont("Ubuntu-Bold", "", header3)
 		pdf.Write(pdf.PointConvert(header3), obj.StudyProgram)

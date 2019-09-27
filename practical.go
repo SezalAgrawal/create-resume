@@ -21,6 +21,8 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 	//Add Object List
 	for _, obj := range workEx.Object {
 
+		createBox(pdf, secondaryColor, 0, pdf.GetY(), boxWidth, boxHeight)
+
 		//Add Position
 		pdf.SetFont("Ubuntu-Bold", "", header3)
 		pdf.Write(pdf.PointConvert(header3), obj.Position)

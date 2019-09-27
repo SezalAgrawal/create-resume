@@ -9,6 +9,8 @@ import (
 func createHeader(pdf *gofpdf.Fpdf, header Header) error {
 	_, y := pdf.GetXY()
 
+	createBox(pdf, primaryColor, 0, y, boxWidth, boxHeight)
+
 	//Add Name
 	pdf.SetFontSize(header5)
 	nameSizePt := pdf.PointConvert(header5)
