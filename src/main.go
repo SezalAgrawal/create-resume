@@ -20,9 +20,10 @@ func main() {
 	//..........................
 
 	// Open resume json file
-	jsonFile, err := os.Open("resume.json")
+	jsonFile, err := os.Open("input/resume.json")
 	if err != nil {
 		fmt.Println("Error", err)
+		os.Exit(1)
 	} else {
 		fmt.Println("Successfully opened resume.json")
 	}
@@ -37,6 +38,7 @@ func main() {
 	err = json.Unmarshal(byteValue, &req)
 	if err != nil {
 		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	//..........................
@@ -126,7 +128,7 @@ func main() {
 	}
 
 	//Create PDF
-	err = pdf.OutputFileAndClose(req.TemplateInfo.TemplateDesign.Name + ".pdf")
+	err = pdf.OutputFileAndClose("output/" + req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {
 		fmt.Println(err)
 	} else {
