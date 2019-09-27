@@ -19,13 +19,13 @@ func createInterests(pdf *gofpdf.Fpdf, interest Interest) error {
 	for _, obj := range interest.Object {
 		pdf.SetLineWidth(0.4)
 		pdf.SetDrawColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
-		pdf.RoundedRect(x, y, rightContentLayoutWidth, summaryHeight*float64(5), 0.7, "1234", "D")
+		pdf.RoundedRect(x, y, rightContentLayoutWidth, summaryHeight*float64(4.5), 0.7, "1234", "D")
 		pdf.SetXY(x+float64(1), y+float64(1))
 		pdf.MultiCell(rightContentLayoutWidth, summaryHeight, obj, "", "TL", false)
 		pdf.Ln(-1)
 
 		//Add Bottom padding
-		y = pdf.GetY() + 2
+		y = pdf.GetY()
 	}
 
 	if !pdf.Ok() {
