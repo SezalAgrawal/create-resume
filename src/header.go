@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func createHeader(pdf *gofpdf.Fpdf, header Header) error {
+func createHeader(pdf *gofpdf.Tpl, header Header) error {
 	_, y := pdf.GetXY()
 
 	createBox(pdf, primaryColor, 0, y, boxWidth, boxHeight)
@@ -81,7 +81,7 @@ func createHeader(pdf *gofpdf.Fpdf, header Header) error {
 	return nil
 }
 
-func createLine(pdf *gofpdf.Fpdf) error {
+func createLine(pdf *gofpdf.Tpl) error {
 	pdf.SetDrawColor(secondaryColor.Red, secondaryColor.Green, secondaryColor.Blue)
 	pdf.SetLineWidth(0.4)
 	pdf.Line(0, layoutHeight*headerPercent, pageWidth, layoutHeight*headerPercent)

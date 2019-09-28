@@ -5,7 +5,7 @@ import (
 	"github.com/jung-kurt/gofpdf"
 )
 
-func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
+func createWorkExperience(pdf *gofpdf.Tpl, workEx WorkExperience) error {
 
 	//Add Title
 	pdf.SetFont("Ubuntu-Bold", "", header4)
@@ -68,7 +68,7 @@ func createWorkExperience(pdf *gofpdf.Fpdf, workEx WorkExperience) error {
 	return nil
 }
 
-func createProjects(pdf *gofpdf.Fpdf, projects Projects) error {
+func createProjects(pdf *gofpdf.Tpl, projects Projects) error {
 
 	//Add Title
 	pdf.SetFont("Ubuntu-Bold", "", header4)

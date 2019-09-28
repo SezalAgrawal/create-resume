@@ -15,7 +15,6 @@ func setGlobalVariables() {
 	marginLeft = 12
 	marginTop = 8
 	marginRight = 12
-	//summaryWidth = 75
 
 	summaryHeight = 4
 	headerPercent = 0.17
@@ -30,7 +29,7 @@ func setGlobalVariables() {
 	secondaryColor = Color{169, 169, 169}
 }
 
-func createBox(pdf *gofpdf.Fpdf, color Color, x, y, w, h float64) {
+func createBox(pdf *gofpdf.Tpl, color Color, x, y, w, h float64) {
 	pdf.SetFillColor(color.Red, color.Green, color.Blue)
 	pdf.Rect(x, y, w, h, "F")
 }

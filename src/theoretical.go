@@ -5,7 +5,7 @@ import (
 	"github.com/jung-kurt/gofpdf"
 )
 
-func createEducation(pdf *gofpdf.Fpdf, ed Education) error {
+func createEducation(pdf *gofpdf.Tpl, ed Education) error {
 
 	//Add Title
 	pdf.SetFont("Ubuntu-Bold", "", header4)

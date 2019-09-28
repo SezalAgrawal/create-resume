@@ -5,7 +5,7 @@ import (
 	"github.com/jung-kurt/gofpdf"
 )
 
-func createInterests(pdf *gofpdf.Fpdf, interest Interest) error {
+func createInterests(pdf *gofpdf.Tpl, interest Interest) error {
 
 	//Add Title
 	pdf.SetFont("Ubuntu-Bold", "", header4)
