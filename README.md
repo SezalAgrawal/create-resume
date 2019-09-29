@@ -1,7 +1,11 @@
 # create-resume
-Creates Resume PDF from JSON object
+Creates resume PDF from JSON object
 
 ### Commands to run:
 
-create_resume > go build -o ./bin/main github.com/create-resume/src <br>
-create_resume > ./bin/main
+```sh
+1. create_resume > go build -o ./bin/main github.com/create-resume/src
+
+
+2. create_resume > ./bin/main
+```
