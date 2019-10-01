@@ -9,8 +9,35 @@ import (
 )
 
 //create global variables for fontSize
-var header1, header2, header3, header4, header5, marginLeft, marginTop, marginRight, summaryHeight, pageWidth, pageHeight, layoutWidth, layoutHeight, headerLayoutWidth, contentLayoutWidth, rightContentLayoutWidth, headerPercent, boxWidth, boxHeight float64
-var textPrimaryColor, textSecondaryColor, textThirdColor, primaryColor, secondaryColor Color
+var (
+	header1,
+	header2,
+	header3,
+	header4,
+	header5,
+	marginLeft,
+	marginTop,
+	marginRight,
+	summaryHeight,
+	pageWidth,
+	pageHeight,
+	layoutWidth,
+	layoutHeight,
+	headerLayoutWidth,
+	contentLayoutWidth,
+	rightContentLayoutWidth,
+	headerPercent,
+	boxWidth,
+	boxHeight float64
+)
+
+var (
+	textPrimaryColor,
+	textSecondaryColor,
+	textThirdColor,
+	primaryColor,
+	secondaryColor Color
+)
 
 func main() {
 
@@ -22,10 +49,9 @@ func main() {
 	jsonFile, err := os.Open("input/resume.json")
 	if err != nil {
 		fmt.Println("Error", err)
-		os.Exit(1)
-	} else {
-		fmt.Println("Successfully opened resume.json")
+		return
 	}
+	fmt.Println("Successfully opened resume.json")
 
 	// defer the closing of our jsonFile so that it can be parsed later on
 	defer jsonFile.Close()
@@ -37,7 +63,7 @@ func main() {
 	err = json.Unmarshal(byteValue, &req)
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(1)
+		return
 	}
 
 	//..........................
@@ -59,8 +85,8 @@ func main() {
 	
 	template, err := createProfessionalTemplate(pdf, req)
 	if err != nil {
-		fmt.Println("Unable to cerate Professional Template!")
-		os.Exit(1)
+		fmt.Println("Unable to create Professional Template!")
+		return
 	}
 
 	pdf.AddPage()
