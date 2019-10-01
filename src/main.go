@@ -67,11 +67,19 @@ func main() {
 	pdf.UseTemplate(template)
 
 	//Create PDF
+	err = os.Mkdir("output", os.FileMode(0777))
+
+	if err != nil && !os.IsExist(err) {
+		fmt.Println("Failed to create output directory. Exiting...")
+		os.Exit(1)
+	}
+
 	err = pdf.OutputFileAndClose("output/" + req.TemplateInfo.TemplateDesign.Name + ".pdf")
 	if err != nil {
 		fmt.Println(err)
-	} else {
-		fmt.Println("Successfully created resume!")
+		os.Exit(1)
 	}
+	
+	fmt.Println("Successfully created resume!")
 
 }
