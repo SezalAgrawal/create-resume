@@ -82,7 +82,6 @@ func main() {
 	pdf.AddFont("Ubuntu-Bold", "", "Ubuntu-Bold.json")
 	pdf.AddFont("Ubuntu-BoldItalic", "", "Ubuntu-BoldItalic.json")
 
-	
 	template, err := createProfessionalTemplate(pdf, req)
 	if err != nil {
 		fmt.Println("Unable to create Professional Template!")
@@ -105,7 +104,7 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	
+
 	fmt.Println("Successfully created resume!")
 
 }
