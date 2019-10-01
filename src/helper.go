@@ -18,9 +18,9 @@ func setGlobalVariables() {
 
 	summaryHeight = 4
 	headerPercent = 0.17
-	boxWidth = marginLeft-3
+	boxWidth = marginLeft - 3
 	boxHeight = marginLeft
-	
+
 	//set Color
 	textPrimaryColor = Color{0, 0, 0}
 	textSecondaryColor = Color{105, 105, 105}
