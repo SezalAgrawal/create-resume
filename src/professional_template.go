@@ -3,7 +3,6 @@ package main
 import (
 	"strconv"
 	"github.com/jung-kurt/gofpdf"
-	"os"
 )
 
 func createProfessionalTemplate(pdf *gofpdf.Fpdf,req Request) (gofpdf.Template, error){
@@ -30,15 +29,15 @@ func createProfessionalTemplate(pdf *gofpdf.Fpdf,req Request) (gofpdf.Template, 
 		rightContentLayoutWidth = contentLayoutWidth - 2
 	
 		// //Create header
-		err := createHeader(pdf, req.UserInfo.Header)
+		err = createHeader(pdf, req.UserInfo.Header)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 	
 		//Create Line
 		err = createLine(pdf)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 	
 		//Set XY for left side
@@ -47,13 +46,13 @@ func createProfessionalTemplate(pdf *gofpdf.Fpdf,req Request) (gofpdf.Template, 
 		//Create Work Experience
 		err = createWorkExperience(pdf, req.UserInfo.Practical.WorkExperience)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 	
 		//Create Education
 		err = createEducation(pdf, req.UserInfo.Theoretical.Education)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 	
 		//Set XY for right side
@@ -63,24 +62,24 @@ func createProfessionalTemplate(pdf *gofpdf.Fpdf,req Request) (gofpdf.Template, 
 		//Create Skills
 		err = createSkills(pdf, req.UserInfo.Abilities.Skills)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 	
 		//Create Projects
 		err = createProjects(pdf, req.UserInfo.Practical.Projects)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 	
 		//Create Interests
 		err = createInterests(pdf, req.UserInfo.Personality.Interest)
 		if err != nil {
-			os.Exit(1)
+			return
 		}
 		})
 
 		if err != nil {
-			return template, err
+			return nil, err
 		}
 
 		return template, nil
