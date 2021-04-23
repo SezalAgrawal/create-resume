@@ -18,7 +18,7 @@ func main() {
 	// Step 1: Read resume JSON object stored in json file
 	//..........................
 
-	// Open resume json file
+	// Open resume json file.
 	jsonFile, err := os.Open("input/resume.json")
 	if err != nil {
 		fmt.Println("Error", err)
