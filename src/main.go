@@ -18,7 +18,7 @@ func main() {
 	// Step 1: Read resume JSON object stored in json file
 	//..........................
 
-	// Open resume json file.
+	// Open resume json file and return error if operation fails.
 	jsonFile, err := os.Open("input/resume.json")
 	if err != nil {
 		fmt.Println("Error", err)
@@ -56,7 +56,6 @@ func main() {
 	pdf.AddFont("Ubuntu-Bold", "", "Ubuntu-Bold.json")
 	pdf.AddFont("Ubuntu-BoldItalic", "", "Ubuntu-BoldItalic.json")
 
-	
 	template, err := createProfessionalTemplate(pdf, req)
 	if err != nil {
 		fmt.Println("Unable to cerate Professional Template!")
