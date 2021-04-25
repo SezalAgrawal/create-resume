@@ -27,7 +27,7 @@ func main() {
 		fmt.Println("Successfully opened resume.json")
 	}
 
-	// defer the closing of our jsonFile so that it can be parsed later on
+	// defer the closing of our jsonFile so that it can be parsed later on.
 	defer jsonFile.Close()
 
 	// read contents
